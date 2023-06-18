@@ -1,9 +1,35 @@
+import * as readline from 'node:readline';
+import { mainMenuInterface, pauseMessageQuestion, selectOptionQuestion } from '../command-line-interfaces';
 
 export const showMenu = () => {
-  console.clear()
 
-  console.log( `\x1b[32m================================\x1b[0m` )
-  console.log( `\x1b[32m          Select an option\x1b[0m` )
-  console.log( `\x1b[32m================================\x1b[0m` )
-  
+  return new Promise<string>( resolve => {
+
+    console.clear()
+    mainMenuInterface()
+
+    const readLine = readline.createInterface( {
+      input: process.stdin,
+      output: process.stdout
+    } )
+
+    readLine.question( selectOptionQuestion(), ( option ) => {
+      readLine.close()
+      resolve( option )
+    } )
+
+  } )
+}
+
+export const pause = () => {
+  return new Promise<void>( resolve => {
+    const readLine = readline.createInterface( {
+      input: process.stdin,
+      output: process.stdout
+    } )
+    readLine.question( pauseMessageQuestion(), ( _option ) => {
+      readLine.close()
+      resolve()
+    } )
+  })
 }

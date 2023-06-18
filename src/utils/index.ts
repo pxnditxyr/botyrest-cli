@@ -1,2 +1,3 @@
 export { createFile, createFolder } from './fileManager'
-export { showMenu } from './messages'
+export { showMenu, pause } from './messages'
+export * from './colors'
