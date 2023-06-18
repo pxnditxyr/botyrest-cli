@@ -1,0 +1,25 @@
+{
+  "name": "botyrest-cli",
+  "version": "0.0.1",
+  "description": "A CLI for botyrest framework",
+  "main": "dist/app",
+  "types": "dist/types/app",
+  "bin": {
+    "botyrest": "./dist/app.js"
+  },
+  "scripts": {
+    "start:dev": "node --watch dist/app.js",
+    "build:dev": "npx tsc --watch",
+    "build:prod": "npx tsc"
+  },
+  "keywords": [
+    "botyrest",
+    "cli"
+  ],
+  "author": "Nayeli Itzel Ticona",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.3.1",
+    "typescript": "^5.1.3"
+  }
+}
