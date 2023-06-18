@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-import { pause, showMenu } from './utils'
+import { mainMenu, pause } from './menus'
+
 console.clear()
 
 const main = async () => {
@@ -7,7 +8,7 @@ const main = async () => {
   let option = ''
 
   do {
-    option = await showMenu()
+    option = await mainMenu()
     console.log( { option } )
     if ( option !== '0' ) await pause()
   } while ( option !== '0' )
