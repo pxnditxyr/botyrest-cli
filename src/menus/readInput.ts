@@ -1,6 +1,6 @@
 import inquirer from 'inquirer'
 
-export const readInput = async ( message: string ): Promise<string> => {
+export const readInput = async ( message: string, noValidation?: boolean ): Promise<string> => {
   const question = [
     {
       type: 'input',
@@ -8,7 +8,7 @@ export const readInput = async ( message: string ): Promise<string> => {
       message,
       validate( value : string ) {
         const regex = /^[a-zA-Z][a-zA-Z0-9]*$/;
-        if ( !regex.test( value ) ) {
+        if ( !noValidation && !regex.test( value ) ) {
           return 'Please enter a valid value'
         }
         return true

@@ -4,9 +4,16 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 import { BotyRestServer, Logger } from 'botyrest'
+import { getEnvironmentVariables } from './config'
 
-const server = new BotyRestServer()
 const logger = new Logger( 'app' )
 
-server.initializeServer()
+try {
+  const server = new BotyRestServer({
+    port: getEnvironmentVariables().port,
+  })
+  server.initializeServer()
+} catch ( error : any ) {
+  logger.error( error )
+}
 `.trim() )

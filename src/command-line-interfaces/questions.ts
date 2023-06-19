@@ -1,7 +1,7 @@
 import { green } from '../utils'
 
 export const selectOptionMessage = () => (
-`Select an option: `
+`Select an option and press ${ green( 'ENTER' ) }:`
 )
 
 export const pauseMessage = () => (

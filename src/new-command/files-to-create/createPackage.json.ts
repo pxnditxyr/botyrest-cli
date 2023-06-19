@@ -1,3 +1,4 @@
+import { necessaryPackages } from "../../utils";
 
 export const createPackageJson = ( name : string ) => (`
 {
@@ -16,11 +17,12 @@ export const createPackageJson = ( name : string ) => (`
   "author": "BotyStudio",
   "license": "ISC",
   "devDependencies": {
-    "typescript": "^5.0.4"
+    "typescript": "${ necessaryPackages[ 'typescript' ].version }",
+    "@types/node": "${ necessaryPackages[ '@types/node' ].version }"
   },
   "dependencies": {
-    "dotenv": "^16.0.3",
-    "botyrest": "^0.0.2"
+    "dotenv": "${ necessaryPackages[ 'dotenv' ].version }",
+    "botyrest": "${ necessaryPackages[ 'botyrest' ].version }"
   }
 }
 `.trim() )

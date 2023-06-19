@@ -1,4 +1,4 @@
-export const createEnv = ( name : string ) => (
+export const createEnv = () => (
 `
 PORT=3001
 `.trim() )
