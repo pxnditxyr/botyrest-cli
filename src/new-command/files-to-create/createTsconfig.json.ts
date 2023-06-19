@@ -1,0 +1,27 @@
+
+export const createTsconfigJson = () => (
+`
+{
+  "compilerOptions": {
+    "target": "esNext",
+    "module": "commonjs",
+    "rootDir": "./src",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "removeComments": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
+    "declaration": true,
+    "declarationDir": "./dist/types"
+  },
+  "include": [ "./src/**/*" ]
+}
+`
+)
