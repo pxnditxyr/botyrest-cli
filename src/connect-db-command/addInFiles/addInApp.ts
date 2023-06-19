@@ -1,47 +1,25 @@
 
-// import dotenv from 'dotenv'
-// dotenv.config()
-//
-// import { BotyRestServer, Logger } from 'botyrest'
-// import { getEnvironmentVariables } from './config'
-//
-// const logger = new Logger( 'app' )
-//
-// try {
-//   const server = new BotyRestServer({
-//     port: getEnvironmentVariables().port,
-//   })
-//   server.initializeServer()
-// } catch ( error : any ) {
-//   logger.error( error )
-// }
+export const addInApp = ( originalCode : string ) => {
+  const dataSourceImport = `
+import { initilizeModules } from './startup'
+import { AppDataSource } from './database'
+`.trim();
 
-// convert this to:
+  const importIndex = originalCode.indexOf( "import { getEnvironmentVariables } from './config'" );
+  const insertIndex = originalCode.indexOf('\n', importIndex) + 1;
 
-// import dotenv from 'dotenv'
-// dotenv.config()
-//
-// import { BotyRestServer } from './server'
-// import { AppDataSource } from './database'
-// import { Logger } from './logger'
-//
-//
-// const server = new BotyRestServer()
-// const logger = new Logger( 'app' )
-//
-// AppDataSource.initialize().then( async () => {
-//   await server.initializeServer()
-// } ).catch( error => logger.error( error ) )
+  const updatedCode = originalCode.slice(0, insertIndex) + dataSourceImport + '\n' + originalCode.slice(insertIndex);
 
-export const addInApp = ( content : string ) => {
-  const splitedContent = content.split( '\n' )
-  const indexOfImport = splitedContent.findIndex( line => line.includes( 'import { BotyRestServer, Logger } from' ) )
-  splitedContent.splice( indexOfImport + 1, 0, `import { AppDataSource } from './database'` )
-  const indexOfInitializeServer = splitedContent.findIndex( line => line.includes( 'server.initializeServer()' ) )
-  splitedContent.splice( indexOfInitializeServer, 0, `\tAppDataSource.initialize().then( async () => {` )
-  splitedContent.splice( indexOfInitializeServer + 1, 0, `\t\tawait server.initializeServer()` )
-  splitedContent.splice( indexOfInitializeServer + 2, 0, `\t} ).catch( error => logger.error( error ) )` )
-  const indexOfInitializeServer2 = splitedContent.findIndex( line => line.includes( '  server.initializeServer()' ) )
-  splitedContent.splice( indexOfInitializeServer2, 1 )
-  return splitedContent.join( '\n' )
+  const serverInitializeIndex = updatedCode.indexOf("server.initializeServer()");
+  const serverInitializeLineEndIndex = updatedCode.indexOf('\n', serverInitializeIndex);
+  const serverInitializeLine = updatedCode.slice(serverInitializeIndex, serverInitializeLineEndIndex);
+
+  const updatedCodeWithAdditionalCode = updatedCode.replace( serverInitializeLine, `
+  AppDataSource.initialize().then(async () => {
+    initilizeModules(server);
+    await server.initializeServer();
+  }).catch(error => logger.error(error))
+  ` );
+
+  return updatedCodeWithAdditionalCode;
 }

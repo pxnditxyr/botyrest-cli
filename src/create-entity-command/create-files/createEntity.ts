@@ -1,8 +1,6 @@
 export const createEntity = ( name : string ) => {
-  const pluralName = name.endsWith( 's' ) || name.endsWith( 'x' ) || name.endsWith( 'z' ) ? `${ name }es` : `${ name }s`.toLowerCase()
-  const entityName = pluralName.replace( /[^a-zA-Z]/g, '' )
-  const capitalizedName = entityName.charAt( 0 ).toUpperCase() + entityName.slice( 1 )
-
+  const entityName = name.toLowerCase()
+  const capitalizedName = name.charAt( 0 ).toUpperCase() + name.slice( 1 )
 
   return (
 `

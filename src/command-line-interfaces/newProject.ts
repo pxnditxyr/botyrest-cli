@@ -21,4 +21,3 @@ export const projectCouldNotBeCreated = ( projectName : string ) => {
   console.log( `${ magenta( 'Error:' ) } ${ red( `The folder` ) } ${ green( projectName ) } ${ red( `could not be created.` ) }` )
   console.log( `${ yellow( `Please, try again.` ) }` )
 }
-  

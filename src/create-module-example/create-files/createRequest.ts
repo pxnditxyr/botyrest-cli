@@ -3,6 +3,8 @@ export const createRequest = ( name : string ) => {
 
   return (
 `
+# ${ name } Request Example
+
 GET http://127.0.0.1:3001/${ nameLower }
 
 GET http://127.0.0.1:3001/${ nameLower }/1
@@ -25,5 +27,5 @@ DELETE http://127.0.0.1:3001/${ nameLower }/id
 Content-Type: application/json
 
 {}
-` )
+`.trim() )
 }

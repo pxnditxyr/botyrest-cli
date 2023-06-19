@@ -28,3 +28,7 @@ export const editFile = ( path : string, content : string ) => {
 export const existsFile = ( path : string ) => {
   return fs.existsSync( path )
 }
+
+export const existsFolder = ( path : string ) => {
+  return fs.existsSync( path )
+}

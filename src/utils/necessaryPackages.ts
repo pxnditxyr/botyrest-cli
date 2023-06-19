@@ -32,4 +32,7 @@ export const necessaryPackages : INecessaryPackages = {
   'sqlite3': {
     version: '^5.1.6',
   },
+  'class-validator': {
+    version: '^0.14.0'
+  }
 }

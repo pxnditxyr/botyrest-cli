@@ -1,10 +1,6 @@
 import { createFile, createFolder, editFile, getContentFile } from '../utils';
-import { addInFileEnv, addInPackage } from './addInFiles';
-import { addInApp } from './addInFiles/addInApp';
-import { addInAppConfig } from './addInFiles/addInAppConfig';
-import { createdockerCompose } from './createFiles';
-import { createAppDataSource } from './createFiles/createAppDataSource';
-import { createDatabaseIndex } from './createFiles/createDatabaseIndex';
+import { addInApp, addInAppConfig, addInFileEnv, addInPackage } from './addInFiles';
+import { createdockerCompose, createAppDataSource, createDatabaseIndex, createStartupIndex, createInitializeModules  } from './createFiles';
 
 export const connectDBCommand = ( databaseName : string ) => {
   try {
@@ -28,6 +24,9 @@ export const connectDBCommand = ( databaseName : string ) => {
     createFolder( './src/database' )
     createFile( './src/database/index.ts', createDatabaseIndex() )
     createFile( './src/database/data-source.ts', createAppDataSource( databaseName ) )
+    createFolder( './src/startup' )
+    createFile( './src/startup/index.ts', createStartupIndex() )
+    createFile( './src/startup/initializeModules.ts', createInitializeModules() )
 
   } catch ( error : any ) {
     return error.code
