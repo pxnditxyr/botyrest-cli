@@ -24,3 +24,7 @@ export const getContentFile = ( path : string ) => {
 export const editFile = ( path : string, content : string ) => {
   fs.writeFileSync( path, content )
 }
+
+export const existsFile = ( path : string ) => {
+  return fs.existsSync( path )
+}

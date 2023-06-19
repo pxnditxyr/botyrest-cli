@@ -5,6 +5,8 @@ import { magenta, green } from '../utils'
 import { connectDBCommand } from '../connect-db-command'
 import { connectDatabaseMenu } from '../menus/connectDabaseMenu'
 import { createNewEntityCommand } from '../create-entity-command'
+import { createNewControllerCommand } from '../create-controller-command'
+import { createModuleExampleCommand } from '../create-module-example'
 
 const createProjectOption = async () => {
   const projectName = await readInput( `Project ${ green( 'Name' ) }: ` )
@@ -28,6 +30,16 @@ export const createNewEntityOption = async () => {
   createNewEntityCommand( entityName, entityPath )
 }
 
+export const createNewControllerOption = async () => {
+  const controllerName = await readInput( `Controller ${ green( 'Name' ) }: ` )
+  const controllerPath = await readInput( `Controller ${ green( 'Path' ) }: `, true )
+  createNewControllerCommand( controllerName, controllerPath )
+}
+
+export const createNewModuleExampleOption = async () => {
+  const moduleName = await readInput( `Module ${ green( 'Name' ) }: ` )
+  createModuleExampleCommand( moduleName )
+}
 
 export const mainMenuManager = async ( option : string ) => {
   switch ( option ) {
@@ -44,10 +56,10 @@ export const mainMenuManager = async ( option : string ) => {
       await createNewEntityOption()
       break
     case '5':
-      console.log( 'Option 5 Selected' )
+      await createNewControllerOption()
       break
     case '6':
-      console.log( 'Option 6 Selected' )
+      await createNewModuleExampleOption()
       break
     case '0':
       console.log( `${ magenta( 'Bye!' ) }` )

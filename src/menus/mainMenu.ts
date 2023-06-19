@@ -26,11 +26,11 @@ const mainMenuQuestions = [
       },
       {
         value: '5',
-        name: `${ cyan( '5.' ) } Create New Service`
+        name: `${ cyan( '5.' ) } Create New Controller`
       },
       {
         value: '6',
-        name: `${ cyan( '6.' ) } Create New Controller`
+        name: `${ cyan( '6.' ) } Create New Module Example (CRUD) in request.http`
       },
       {
         value: '0',
