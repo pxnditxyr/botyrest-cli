@@ -1,5 +1,5 @@
 {
-  "name": "botyrest-cli",
+  "name": "@botyrest/cli",
   "version": "0.0.1",
   "description": "A CLI for botyrest framework",
   "main": "dist/app",
