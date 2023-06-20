@@ -7,25 +7,22 @@ export const createRequest = ( name : string ) => {
 
 GET http://127.0.0.1:3001/${ nameLower }
 
-GET http://127.0.0.1:3001/${ nameLower }/1
+GET http://127.0.0.1:3001/${ nameLower }/:id
 
 POST http://127.0.0.1:3001/${ nameLower }
 Content-Type: application/json
 
 {
-  "name": "some name",
+  "name": "some name"
 }
 
-PATCH http://127.0.0.1:3001/${ nameLower }/id
+PATCH http://127.0.0.1:3001/${ nameLower }/:id
 Content-Type: application/json
 
 {
-  "name": "some name updated",
+  "name": "some name updated"
 }
 
-DELETE http://127.0.0.1:3001/${ nameLower }/id
-Content-Type: application/json
-
-{}
+DELETE http://127.0.0.1:3001/${ nameLower }/:id
 `.trim() )
 }

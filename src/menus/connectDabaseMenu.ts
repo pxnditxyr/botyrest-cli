@@ -24,6 +24,10 @@ const mainMenuQuestions = [
         value: 'mongodb',
         name: `${ cyan( '4.' ) } Mongo DB`
       },
+      {
+        value: 'mysql',
+        name: `${ cyan( '5.' ) } Maria DB`
+      },
     ]
   }
 ]

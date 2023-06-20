@@ -6,7 +6,7 @@ export const createModuleExampleCommand = ( name : string ) => {
     let newRequest = createRequest( name )
     if ( existsFile( `./request.http` ) ) {
       const content = getContentFile( `./request.http` )
-      newRequest = content + newRequest
+      newRequest = content + '\n\n' + newRequest 
     } 
     createFile( `./request.http`, newRequest )
   } catch ( error : any ) {

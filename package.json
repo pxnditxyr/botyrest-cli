@@ -8,6 +8,7 @@
     "botyrest": "./dist/app.js"
   },
   "scripts": {
+    "prepare": "npm run build:prod",
     "start:dev": "node --watch dist/app.js",
     "build:dev": "npx tsc --watch",
     "build:prod": "npx tsc"

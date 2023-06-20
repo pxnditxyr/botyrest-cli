@@ -5,47 +5,43 @@ export const createService = ( name : string ) => {
   const fileName = getFileName( name )
   return (
 `
-import { Repository } from 'typeorm';
-import { AppDataSource } from '../../database';
-import { ${ nameCapitalized } } from './${ fileName }.entity';
 import { Create${ nameCapitalized }Dto, Update${ nameCapitalized }Dto } from './dtos';
 
-export class ${ nameCapitalized }Service {
-  private readonly ${ name }Repository : Repository<${ nameCapitalized }> = AppDataSource.getRepository( ${ nameCapitalized } )
+import { ${ name }Repository } from '../../startup';
 
-  constructor () {}
-  
+export class ${ nameCapitalized }Service {
+
   async findAll () {
-    const ${ name } = await this.${ name }Repository.find()
+    const ${ name } = await ${ name }Repository.find()
     return ${ name }
   }
 
   async findOne ( term : string ) {
-    const ${ name } = await this.${ name }Repository.findOneBy({ id: term })
+    const ${ name } = await ${ name }Repository.findOneBy({ id: term })
     return ${ name }
   }
 
   async create ( create${ nameCapitalized }Dto : Create${ nameCapitalized }Dto ) {
-    const ${ name } = this.${ name }Repository.create( create${ nameCapitalized }Dto )
-    return await this.${ name }Repository.save( ${ name } )
+    const ${ name } = ${ name }Repository.create( create${ nameCapitalized }Dto )
+    return await ${ name }Repository.save( ${ name } )
   }
 
   async update ( id : string, update${ nameCapitalized }Dto : Update${ nameCapitalized }Dto ) {
-    const ${ name }ToUpdate = await this.${ name }Repository.preload({
+    const ${ name }ToUpdate = await ${ name }Repository.preload({
       id,
       ...update${ nameCapitalized }Dto
     })
 
     if ( !${ name }ToUpdate ) return
 
-    await this.${ name }Repository.save( ${ name }ToUpdate )
+    await ${ name }Repository.save( ${ name }ToUpdate )
     return ${ name }ToUpdate
   }
 
   async delete ( id : string ) {
     const ${ name }ToDelete = await this.findOne( id )
     if ( !${ name }ToDelete ) return
-    return await this.${ name }Repository.delete( id )
+    return await ${ name }Repository.delete( id )
   }
 }
 `.trim() )

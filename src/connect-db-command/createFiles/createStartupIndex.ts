@@ -1,5 +1,5 @@
 export const createStartupIndex = () => (
 `
-export { initilizeModules } from './initializeModules'
+export * from './initializeModules'
 `.trim()
 )

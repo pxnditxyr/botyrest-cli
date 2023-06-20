@@ -1,4 +1,4 @@
-import { createdNewProjectSuccess, projectCouldNotBeCreated, projectFolderAlreadyExists } from '../command-line-interfaces'
+import { createdNewProjectSuccess, printConnectDatabaseSuccess, projectCouldNotBeCreated, projectFolderAlreadyExists } from '../command-line-interfaces'
 import { readInput } from '../menus/readInput'
 import { newCommand } from '../new-command'
 import { magenta, green } from '../utils'
@@ -18,7 +18,7 @@ const createProjectOption = async () => {
 export const connectProjectToDatabaseOption = async () => {
   const database = await connectDatabaseMenu()
   const error = connectDBCommand( database )
-  errorManager( error, database )
+  errorManager( error, database, printConnectDatabaseSuccess )
 }
 
 export const createNewEntityOption = async () => {

@@ -11,6 +11,11 @@ const logger = new Logger( 'app' )
 try {
   const server = new BotyRestServer({
     port: getEnvironmentVariables().port,
+    origin: true,
+    rateLimitOptions: {
+      max: 100,
+      timeWindow: '5 minutes'
+    }
   })
   server.initializeServer()
 } catch ( error : any ) {
