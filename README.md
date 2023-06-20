@@ -11,13 +11,13 @@ Asegúrate de tener instalado Node.js y npm en tu sistema antes de utilizar este
 Puedes instalar el CLI globalmente utilizando el siguiente comando:
 
 ```bash
-npm i -g @botyrest/cli
+npm i -g botyrest-cli
 ```
 
 También puedes utilizar el CLI de forma local instalándolo como una dependencia en tu proyecto:
 
 ```bash
-npm i @botyrest/cli
+npm i botyrest-cli
 ```
 
 Luego, puedes ejecutar el CLI localmente utilizando npx:
