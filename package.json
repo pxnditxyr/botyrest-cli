@@ -1,6 +1,6 @@
 {
   "name": "botyrest-cli",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A CLI for botyrest framework",
   "main": "dist/app",
   "types": "dist/types/app",
