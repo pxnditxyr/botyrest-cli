@@ -1,7 +1,7 @@
 
 export const createInitializeModules = () => (
 `
-import { BotyRestServer } from 'botyrest';
+import { BotyRestServer } from 'bottyrest';
 import { Repository } from 'typeorm';
 import { AppDataSource } from '../database';
 

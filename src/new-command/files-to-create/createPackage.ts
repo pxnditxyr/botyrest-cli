@@ -22,7 +22,7 @@ export const createPackageJson = ( name : string ) => (`
   },
   "dependencies": {
     "dotenv": "${ necessaryPackages[ 'dotenv' ].version }",
-    "botyrest": "${ necessaryPackages[ 'botyrest' ].version }"
+    "bottyrest": "${ necessaryPackages[ 'bottyrest' ].version }"
   }
 }
 `.trim() )

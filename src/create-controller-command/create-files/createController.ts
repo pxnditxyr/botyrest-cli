@@ -4,7 +4,7 @@ export const createController = ( name : string ) => {
 
   return (
 `
-import { Delete, Get, Patch, Post } from 'botyrest'
+import { Delete, Get, Patch, Post } from 'bottyrest'
 
 export class ${ capitalizedName }Controller {
   [ key : string ]: any

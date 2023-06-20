@@ -6,7 +6,7 @@ export const createModule = ( name : string ) => {
   const fileName = getFileName( name )
   return (
 `
-import { BotyRestServer, Module } from 'botyrest';
+import { BotyRestServer, Module } from 'bottyrest';
 import { ${ nameCapitalized }Controller } from './${ fileName }.controller';
 
 @Module({

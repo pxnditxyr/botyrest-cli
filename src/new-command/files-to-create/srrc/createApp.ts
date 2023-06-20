@@ -3,7 +3,7 @@ export const createApp = () => (
 import dotenv from 'dotenv'
 dotenv.config()
 
-import { BotyRestServer, Logger } from 'botyrest'
+import { BotyRestServer, Logger } from 'bottyrest'
 import { getEnvironmentVariables } from './config'
 
 const logger = new Logger( 'app' )

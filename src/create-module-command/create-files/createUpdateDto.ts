@@ -6,7 +6,7 @@ export const createUpdateDto = ( name : string ) => {
   const fileName = getFileName( name )
   return (
 `
-import { PartialType } from 'botyrest'
+import { PartialType } from 'bottyrest'
 import { Create${ nameCapitalized }Dto } from './create-${ fileName }.dto';
 
 export class Update${ nameCapitalized }Dto extends PartialType( Create${ nameCapitalized }Dto ) {}

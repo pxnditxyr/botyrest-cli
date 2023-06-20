@@ -3,7 +3,7 @@ export const createController = ( name : string ) => {
   const nameCapitalized = name.charAt( 0 ).toUpperCase() + name.slice( 1 )
   return (
 `
-import { Delete, Get, Patch, Post } from 'botyrest'
+import { Delete, Get, Patch, Post } from 'bottyrest'
 import { ${ nameCapitalized }Service } from './${ name }.service'
 import { Create${ nameCapitalized }Dto, Update${ nameCapitalized }Dto } from './dtos'
 
