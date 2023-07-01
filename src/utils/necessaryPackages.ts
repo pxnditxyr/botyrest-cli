@@ -5,7 +5,7 @@ interface INecessaryPackages {
 }
 
 export const necessaryPackages : INecessaryPackages = {
-  'bottyrest': {
+  'botyrest': {
     version: '^0.1.0',
   },
   'dotenv': {
